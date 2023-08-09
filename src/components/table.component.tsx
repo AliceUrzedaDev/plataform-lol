@@ -1,4 +1,9 @@
+'use client'
+
 import { IChampion } from "@/interface/champions.interface";
+import buildImageChampion from "@/utils/buildImageChampion";
+import { useEffect } from "react";
+import { v4 as uuidv4 } from 'uuid';
 
 const statuses: any = {
   Completed: "text-green-400 bg-green-400/10",
@@ -10,8 +15,6 @@ const champions: IChampion[] = [
     id: "Aatrox",
     key: "266",
     name: "Aatrox",
-    imageUrl: 
-    'https://prod.api.assets.riotgames.com/public/v1/asset/lol/13.15.1/CHAMPION/266/ICON',
     title: "A Lâmina Darkin",
     blurb:
       "Aatrox é um guerreiro lendário, um dos apenas cinco que restam de uma raça antiga conhecida como Darkin. Ele empunha sua enorme lâmina com graça e equilíbrio, cortanto legiões em um estilo hipnótico de se ver. Com cada inimigo derrubado, o ataque de Aatrox...",
@@ -68,8 +71,6 @@ const champions: IChampion[] = [
     id: "Ahri",
     key: "103",
     name: "Ahri",
-    imageUrl: 
-    'https://prod.api.assets.riotgames.com/public/v1/asset/lol/13.15.1/CHAMPION/103/ICON',
     title: "A Raposa de Nove Caudas",
     blurb: "Ao contrário de outras raposas que percorriam as florestas do sul de Ionia, Ahri sempre sentiu uma estranha conexão com o mundo mágico ao seu redor; uma conexão que estava de alguma forma incompleta. No fundo, ela sentiu que a pele em que havia nascido era inadequada para...",
     
@@ -125,8 +126,6 @@ const champions: IChampion[] = [
     id: "Alistar",
     key: "12",
     name: "Alistar",
-    imageUrl: 
-    'https://prod.api.assets.riotgames.com/public/v1/asset/lol/13.15.1/CHAMPION/12/ICON',
     title: "O Minotauro",
     blurb: "Como o guerreiro mais poderoso que já surgiu das tribos Minotauros da Grande Barreira, Alistar defendeu sua tribo dos muitos perigos de Valoran; isto é, até a chegada do exército noxiano. Alistar foi atraído de sua aldeia pelas maquinações de ...",
     
@@ -182,8 +181,6 @@ const champions: IChampion[] = [
     id: "Amumu",
     key: "32",
     name: "Amumu",
-    imageUrl: 
-    'https://prod.api.assets.riotgames.com/public/v1/asset/lol/13.15.1/CHAMPION/32/ICON',
     title: "A Múmia Triste",
     blurb: "A solidão pode ser mais solitária do que a morte.Uma alma solitária e melancólica da antiga Shurima, Amumu percorre o mundo em busca de um amigo. Amaldiçoado por um antigo feitiço, ele está condenado a permanecer sozinho para sempre , como seu toque é a morte e seu carinho...",
     
@@ -234,6 +231,61 @@ const champions: IChampion[] = [
     }
 },
 
+{
+  version: "6.24.1",
+  id: "Akali",
+  key: "84",
+  name: "Akali",
+  title: "O Punho da Sombra",
+  blurb: "Existe uma antiga ordem originária das Ilhas Jônicas dedicada à preservação do equilíbrio. Ordem, caos, luz, escuridão - todas as coisas devem existir em perfeita harmonia, pois assim é o universo. Esta ordem é conhecida como Kinkou...",
+  
+  info: {
+    attack: 5,
+    defense: 3,
+    magic: 8,
+    difficulty: 7,
+  },
+  
+  image: {
+      full: "Akali.png",
+      sprite: "champion0.png", 
+      group: "champion",
+      x: 96,
+      y: 0,
+      w: 48,
+      h: 48,
+  },
+ 
+  tags: [
+      "Assassino", 
+  ],
+
+  partype: "Energy", 
+  
+  stats: {
+      hp: "587.8",
+      hpperlevel: "85.0",
+      mp: "200.0",
+      mpperlevel: "0.0",
+      movespeed: "350.0",
+      armor: "26.38",
+      armorperlevel: "3.5",
+      spellblock: "32.1",
+      spellblockperlevel: "1.25",
+      attackrange: "125.0",
+      hpregen: "8.34",
+      hpregenperlevel: "0.65",
+      mpregen: "50.0",
+      mpregenperlevel: "0.0",
+      crit: "0.0",
+      critperlevel: "0.0",
+      attackdamage: "58.376",
+      attackdamageperlevel: "3.2",
+      attackspeedoffset: "-0.1",
+      attackspeedperlevel: "3.1",
+  }
+},
+
 ];
 
 function classNames(...classes: string[]) {
@@ -269,31 +321,10 @@ export default function TableComponent() {
         </thead>
         <tbody className="divide-y divide-white/5">
           {champions.map((champion) => (
-            <tr key={champion.version}>
-              {/*               <td className="py-4 pl-4 pr-8 sm:pl-6 lg:pl-8">
-                <div className="flex items-center gap-x-4">
-                  <img src={item.user.imageUrl} alt="" className="h-8 w-8 rounded-full bg-gray-800" />
-                  <div className="truncate text-sm font-medium leading-6 text-white">{item.user.name}</div>
-                </div>
-              </td>
-              <td className="hidden py-4 pl-0 pr-4 sm:table-cell sm:pr-8">
-                <div className="flex gap-x-3">
-                  <div className="font-mono text-sm leading-6 text-gray-400">{item.commit}</div>
-                  <div className="rounded-md bg-gray-700/40 px-2 py-1 text-xs font-medium text-gray-400 ring-1 ring-inset ring-white/10">
-                    {item.branch}
-                  </div>
-                </div>
-              </td>
-
-              <td className="hidden py-4 pl-0 pr-8 text-sm leading-6 text-gray-400 md:table-cell lg:pr-20">
-                {item.duration}
-              </td>
-              <td className="hidden py-4 pl-0 pr-4 text-right text-sm leading-6 text-gray-400 sm:table-cell sm:pr-6 lg:pr-8">
-                <time dateTime={item.dateTime}>{item.date}</time>
-              </td> */}
+            <tr key={champion.id}>
                 <td className="py-4 pl-4 pr-8 sm:pl-6 lg:pl-8">
                 <div className="flex items-center gap-x-4">
-                <img src={champion.imageUrl} alt="" className="h-8 w-8 rounded-full bg-gray-800" />
+                <img src={buildImageChampion(champion.key)} alt="" className="h-8 w-8 rounded-full bg-gray-800" />
                 <div className="truncate text-sm font-medium leading-6 text-white">{champion.name}</div>
                 </div>
               </td>
@@ -306,7 +337,9 @@ export default function TableComponent() {
                 <div className="flex items-center">
                   <div className="truncate text-sm font-medium leading-6 text-white">
                     {champion.tags.map((tag) => (
-                      <p>{tag}</p>
+                      <div key={uuidv4()} className="rounded-md bg-gray-700/40 px-2 py-1 text-xs font-medium text-gray-400 ring-1 ring-inset ring-white/10 text-center mb-2">
+                        {tag}
+                      </div>
                     ))}
                   </div>
                 </div>

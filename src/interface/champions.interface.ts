@@ -3,7 +3,6 @@ export interface IChampion {
     id: string,
     key: string,
     name: string,
-    imageUrl: string,
     title: string,
     blurb: string,
     info: IInfo,
