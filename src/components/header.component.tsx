@@ -5,16 +5,16 @@ import { Dialog } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 
 const navigation = [
+  { name: 'League Of Legends', href: '#' },
   { name: 'Universo', href: '#' },
   { name: 'Campeões', href: '#' },
-  { name: 'League Of Legends', href: '#' },
 ]
 
 export default function HeaderComponent() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
-    <header className="bg-indigo-100">
+    <header className="bg-white">
       <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
         <div className="flex flex-1">
           <div className="hidden lg:flex lg:gap-x-12">
@@ -37,7 +37,7 @@ export default function HeaderComponent() {
         </div>
         <a href="#" className="-m-1.5 p-1.5">
           <span className="sr-only">Your Company</span>
-          <img className="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="" />
+          <img className="h-14 w-auto" src="https://www.freepnglogos.com/uploads/fox-head-art-logo-png-13.png" alt="" />
         </a>
         <div className="flex flex-1 justify-end">
           <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
