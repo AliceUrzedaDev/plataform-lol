@@ -2,22 +2,17 @@
 
 import { IChampion } from "@/interface/champions.interface";
 import buildImageChampion from "@/utils/buildImageChampion";
-import { useEffect } from "react";
 import { v4 as uuidv4 } from 'uuid';
 
-const statuses: any = {
-  Completed: "text-green-400 bg-green-400/10",
-  Error: "text-rose-400 bg-rose-400/10",
-};
 const champions: IChampion[] = [
 {
     version: "6.24.1",
     id: "Aatrox",
     key: "266",
     name: "Aatrox",
-    title: "A Lâmina Darkin",
+    title: "The Darkin Blade",
     blurb:
-      "Aatrox é um guerreiro lendário, um dos apenas cinco que restam de uma raça antiga conhecida como Darkin. Ele empunha sua enorme lâmina com graça e equilíbrio, cortanto legiões em um estilo hipnótico de se ver. Com cada inimigo derrubado, o ataque de Aatrox...",
+      "Aatrox is a legendary warrior, one of only five that remain of an ancient race known as the Darkin. He wields his massive blade with grace and poise, slicing through legions in a style that is hypnotic to behold. With each foe felled, Aatrox's ...",
        
     info: {
       attack: 8,
@@ -37,7 +32,7 @@ const champions: IChampion[] = [
     },
 
     tags: [
-        "Lutador", "Tank",
+        "Fighter", "Tank",
     ],
    
     partype: "BloodWell", 
@@ -71,8 +66,8 @@ const champions: IChampion[] = [
     id: "Ahri",
     key: "103",
     name: "Ahri",
-    title: "A Raposa de Nove Caudas",
-    blurb: "Ao contrário de outras raposas que percorriam as florestas do sul de Ionia, Ahri sempre sentiu uma estranha conexão com o mundo mágico ao seu redor; uma conexão que estava de alguma forma incompleta. No fundo, ela sentiu que a pele em que havia nascido era inadequada para...",
+    title: "The Nine-Tailed Fox",
+    blurb: "Unlike other foxes that roamed the woods of southern Ionia, Ahri had always felt a strange connection to the magical world around her; a connection that was somehow incomplete. Deep inside, she felt the skin she had been born into was an ill fit for ...",
     
     info: {
       attack: 3,
@@ -92,7 +87,7 @@ const champions: IChampion[] = [
     },
    
     tags: [
-        "Mago", "Assasino",
+        "Mage", "Assassin",
     ],
       
     partype: "MP", 
@@ -122,12 +117,67 @@ const champions: IChampion[] = [
 },
 
 {
+  version: "6.24.1",
+  id: "Akali",
+  key: "84",
+  name: "Akali",
+  title: "The Fist of Shadow",
+  blurb: "There exists an ancient order originating in the Ionian Isles dedicated to the preservation of balance. Order, chaos, light, darkness -- all things must exist in perfect harmony for such is the way of the universe. This order is known as the Kinkou ...",
+  
+  info: {
+    attack: 5,
+    defense: 3,
+    magic: 8,
+    difficulty: 7,
+  },
+  
+  image: {
+      full: "Akali.png",
+      sprite: "champion0.png", 
+      group: "champion",
+      x: 96,
+      y: 0,
+      w: 48,
+      h: 48,
+  },
+ 
+  tags: [
+      "Assassin", 
+  ],
+
+  partype: "Energy", 
+  
+  stats: {
+      hp: "587.8",
+      hpperlevel: "85.0",
+      mp: "200.0",
+      mpperlevel: "0.0",
+      movespeed: "350.0",
+      armor: "26.38",
+      armorperlevel: "3.5",
+      spellblock: "32.1",
+      spellblockperlevel: "1.25",
+      attackrange: "125.0",
+      hpregen: "8.34",
+      hpregenperlevel: "0.65",
+      mpregen: "50.0",
+      mpregenperlevel: "0.0",
+      crit: "0.0",
+      critperlevel: "0.0",
+      attackdamage: "58.376",
+      attackdamageperlevel: "3.2",
+      attackspeedoffset: "-0.1",
+      attackspeedperlevel: "3.1",
+  }
+},
+
+{
     version: "6.24.1",
     id: "Alistar",
     key: "12",
     name: "Alistar",
-    title: "O Minotauro",
-    blurb: "Como o guerreiro mais poderoso que já surgiu das tribos Minotauros da Grande Barreira, Alistar defendeu sua tribo dos muitos perigos de Valoran; isto é, até a chegada do exército noxiano. Alistar foi atraído de sua aldeia pelas maquinações de ...",
+    title: "The Minotaur",
+    blurb: "As the mightiest warrior to ever emerge from the Minotaur tribes of the Great Barrier, Alistar defended his tribe from Valoran's many dangers; that is, until the coming of the Noxian army. Alistar was lured from his village by the machinations of ...",
     
     info: {
       attack: 6,
@@ -147,7 +197,7 @@ const champions: IChampion[] = [
     },
    
     tags: [
-       "Tank", "Suporte",
+       "Tank", "Support",
     ],
 
     partype: "MP", 
@@ -181,8 +231,8 @@ const champions: IChampion[] = [
     id: "Amumu",
     key: "32",
     name: "Amumu",
-    title: "A Múmia Triste",
-    blurb: "A solidão pode ser mais solitária do que a morte.Uma alma solitária e melancólica da antiga Shurima, Amumu percorre o mundo em busca de um amigo. Amaldiçoado por um antigo feitiço, ele está condenado a permanecer sozinho para sempre , como seu toque é a morte e seu carinho...",
+    title: "The Sad Mummy",
+    blurb: "Solitude can be lonelier than death. A lonely and melancholy soul from ancient Shurima, Amumu roams the world in search of a friend. Cursed by an ancient spell, he is doomed to remain alone forever, as his touch is death and his affection ...",
     
     info: {
       attack: 2,
@@ -202,7 +252,7 @@ const champions: IChampion[] = [
     },
    
     tags: [
-        "Tank", "Mago",
+        "Tank", "Mage",
     ],
 
     partype: "MP", 
@@ -231,66 +281,7 @@ const champions: IChampion[] = [
     }
 },
 
-{
-  version: "6.24.1",
-  id: "Akali",
-  key: "84",
-  name: "Akali",
-  title: "O Punho da Sombra",
-  blurb: "Existe uma antiga ordem originária das Ilhas Jônicas dedicada à preservação do equilíbrio. Ordem, caos, luz, escuridão - todas as coisas devem existir em perfeita harmonia, pois assim é o universo. Esta ordem é conhecida como Kinkou...",
-  
-  info: {
-    attack: 5,
-    defense: 3,
-    magic: 8,
-    difficulty: 7,
-  },
-  
-  image: {
-      full: "Akali.png",
-      sprite: "champion0.png", 
-      group: "champion",
-      x: 96,
-      y: 0,
-      w: 48,
-      h: 48,
-  },
- 
-  tags: [
-      "Assassino", 
-  ],
-
-  partype: "Energy", 
-  
-  stats: {
-      hp: "587.8",
-      hpperlevel: "85.0",
-      mp: "200.0",
-      mpperlevel: "0.0",
-      movespeed: "350.0",
-      armor: "26.38",
-      armorperlevel: "3.5",
-      spellblock: "32.1",
-      spellblockperlevel: "1.25",
-      attackrange: "125.0",
-      hpregen: "8.34",
-      hpregenperlevel: "0.65",
-      mpregen: "50.0",
-      mpregenperlevel: "0.0",
-      crit: "0.0",
-      critperlevel: "0.0",
-      attackdamage: "58.376",
-      attackdamageperlevel: "3.2",
-      attackspeedoffset: "-0.1",
-      attackspeedperlevel: "3.1",
-  }
-},
-
 ];
-
-function classNames(...classes: string[]) {
-  return classes.filter(Boolean).join(" ");
-}
 
 export default function TableComponent() {
   return (
