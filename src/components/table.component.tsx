@@ -311,9 +311,11 @@ export default function TableComponent() {
   }, []);
   
   return (
-    <div className="bg-gray-900 py-10">
-      <h2 className="px-4 text-base font-semibold leading-7 text-white sm:px-6 lg:px-8">
+    <div className="bg-gray-900 py-10 m-10 rounded-md">
+      <h2 className="px-4 text-base font-semibold leading-7 text-white sm:px-6 lg:px-8 text-lg">
+      <span className= "h-14 bg-gradient-to-r from-orange-400 to-orange-700 rounded-md p-2">
         Listas de Campeões Gratuitos
+      </span>
       </h2>
       <table className="mt-6 w-full whitespace-nowrap text-left">
         <colgroup>
