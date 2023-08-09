@@ -3,8 +3,10 @@
 import { IChampion } from "@/interface/champions.interface";
 import buildImageChampion from "@/utils/buildImageChampion";
 import { v4 as uuidv4 } from 'uuid';
+import translate from "translate";
+import { useEffect, useState } from "react";
 
-const champions: IChampion[] = [
+let championsSource: IChampion[] = [
 {
     version: "6.24.1",
     id: "Aatrox",
@@ -284,6 +286,30 @@ const champions: IChampion[] = [
 ];
 
 export default function TableComponent() {
+  const [champions, setChampions] = useState(championsSource)
+
+  useEffect(() => {
+    const translateTitles = async () => {
+      const translatedChampions = await Promise.all(
+        champions.map(async (champion) => {
+          const translatedTags = await Promise.all(
+            champion.tags.map(async (tag) => await translate(tag, "pt"))
+          );
+          
+          return {
+            ...champion,
+            title: await translate(champion.title, "pt"),
+            tags: translatedTags
+          };
+        })
+      );
+      
+      setChampions(translatedChampions);
+    };
+
+    translateTitles();
+  }, []);
+  
   return (
     <div className="bg-gray-900 py-10">
       <h2 className="px-4 text-base font-semibold leading-7 text-white sm:px-6 lg:px-8">
