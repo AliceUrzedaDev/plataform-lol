@@ -1,17 +1,21 @@
+import { IChampion } from "@/interface/champions.interface";
+
 const statuses: any = {
   Completed: "text-green-400 bg-green-400/10",
   Error: "text-rose-400 bg-rose-400/10",
 };
-const activityItems = [
+const activityItems: IChampion[] = [
 {
     version: "6.24.1",
     id: "Aatrox",
     key: "266",
     name: "Aatrox",
-    title: "a lâmina Darkin",
+    imageUrl: 
+    'https://prod.api.assets.riotgames.com/public/v1/asset/lol/13.15.1/CHAMPION/266/ICON',
+    title: "A Lâmina Darkin",
     blurb:
       "Aatrox é um guerreiro lendário, um dos apenas cinco que restam de uma raça antiga conhecida como Darkin. Ele empunha sua enorme lâmina com graça e equilíbrio, cortanto legiões em um estilo hipnótico de se ver. Com cada inimigo derrubado, o ataque de Aatrox...",
-    
+       
     info: {
       attack: 8,
       defense: 4,
@@ -30,8 +34,7 @@ const activityItems = [
     },
 
     tags: [
-        "Lutador",
-        "Tank",
+        "Lutador", "Tank",
     ],
    
     partype: "BloodWell", 
@@ -65,6 +68,8 @@ const activityItems = [
     id: "Ahri",
     key: "103",
     name: "Ahri",
+    imageUrl: 
+    'https://prod.api.assets.riotgames.com/public/v1/asset/lol/13.15.1/CHAMPION/103/ICON',
     title: "A Raposa de Nove Caudas",
     blurb: "Ao contrário de outras raposas que percorriam as florestas do sul de Ionia, Ahri sempre sentiu uma estranha conexão com o mundo mágico ao seu redor; uma conexão que estava de alguma forma incompleta. No fundo, ela sentiu que a pele em que havia nascido era inadequada para...",
     
@@ -86,8 +91,7 @@ const activityItems = [
     },
    
     tags: [
-        "Mago",
-        "Assasino",
+        "Mago", "Assasino",
     ],
       
     partype: "MP", 
@@ -121,6 +125,8 @@ const activityItems = [
     id: "Alistar",
     key: "12",
     name: "Alistar",
+    imageUrl: 
+    'https://prod.api.assets.riotgames.com/public/v1/asset/lol/13.15.1/CHAMPION/12/ICON',
     title: "O Minotauro",
     blurb: "Como o guerreiro mais poderoso que já surgiu das tribos Minotauros da Grande Barreira, Alistar defendeu sua tribo dos muitos perigos de Valoran; isto é, até a chegada do exército noxiano. Alistar foi atraído de sua aldeia pelas maquinações de ...",
     
@@ -142,8 +148,7 @@ const activityItems = [
     },
    
     tags: [
-        "Tank",
-        "Suporte",
+       "Tank", "Suporte",
     ],
 
     partype: "MP", 
@@ -177,6 +182,8 @@ const activityItems = [
     id: "Amumu",
     key: "32",
     name: "Amumu",
+    imageUrl: 
+    'https://prod.api.assets.riotgames.com/public/v1/asset/lol/13.15.1/CHAMPION/32/ICON',
     title: "A Múmia Triste",
     blurb: "A solidão pode ser mais solitária do que a morte.Uma alma solitária e melancólica da antiga Shurima, Amumu percorre o mundo em busca de um amigo. Amaldiçoado por um antigo feitiço, ele está condenado a permanecer sozinho para sempre , como seu toque é a morte e seu carinho...",
     
@@ -198,8 +205,7 @@ const activityItems = [
     },
    
     tags: [
-        "Tank",
-        "Mago",
+        "Tank", "Mago",
     ],
 
     partype: "MP", 
@@ -238,7 +244,7 @@ export default function TableComponent() {
   return (
     <div className="bg-gray-900 py-10">
       <h2 className="px-4 text-base font-semibold leading-7 text-white sm:px-6 lg:px-8">
-        Latest activity
+        Listas de Campeões Gratuitos
       </h2>
       <table className="mt-6 w-full whitespace-nowrap text-left">
         <colgroup>
@@ -287,7 +293,8 @@ export default function TableComponent() {
               </td> */}
                 <td className="py-4 pl-4 pr-8 sm:pl-6 lg:pl-8">
                 <div className="flex items-center gap-x-4">
-                  <div className="truncate text-sm font-medium leading-6 text-white">{item.name}</div>
+                <img src={item.imageUrl} alt="" className="h-8 w-8 rounded-full bg-gray-800" />
+                <div className="truncate text-sm font-medium leading-6 text-white">{item.name}</div>
                 </div>
               </td>
               <td className="hidden py-4 pl-0 pr-4 sm:table-cell sm:pr-8">
