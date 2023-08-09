@@ -4,7 +4,7 @@ const statuses: any = {
   Completed: "text-green-400 bg-green-400/10",
   Error: "text-rose-400 bg-rose-400/10",
 };
-const activityItems: IChampion[] = [
+const champions: IChampion[] = [
 {
     version: "6.24.1",
     id: "Aatrox",
@@ -268,8 +268,8 @@ export default function TableComponent() {
           </tr>
         </thead>
         <tbody className="divide-y divide-white/5">
-          {activityItems.map((item) => (
-            <tr key={item.version}>
+          {champions.map((champion) => (
+            <tr key={champion.version}>
               {/*               <td className="py-4 pl-4 pr-8 sm:pl-6 lg:pl-8">
                 <div className="flex items-center gap-x-4">
                   <img src={item.user.imageUrl} alt="" className="h-8 w-8 rounded-full bg-gray-800" />
@@ -293,18 +293,22 @@ export default function TableComponent() {
               </td> */}
                 <td className="py-4 pl-4 pr-8 sm:pl-6 lg:pl-8">
                 <div className="flex items-center gap-x-4">
-                <img src={item.imageUrl} alt="" className="h-8 w-8 rounded-full bg-gray-800" />
-                <div className="truncate text-sm font-medium leading-6 text-white">{item.name}</div>
+                <img src={champion.imageUrl} alt="" className="h-8 w-8 rounded-full bg-gray-800" />
+                <div className="truncate text-sm font-medium leading-6 text-white">{champion.name}</div>
                 </div>
               </td>
               <td className="hidden py-4 pl-0 pr-4 sm:table-cell sm:pr-8">
                 <div className="flex items-center">
-                  <div className="truncate text-sm font-medium leading-6 text-white">{item.title}</div>
+                  <div className="truncate text-sm font-medium leading-6 text-white">{champion.title}</div>
                 </div>
               </td>
               <td className="hidden py-4 pl-0 pr-4 sm:table-cell sm:pr-8">
                 <div className="flex items-center">
-                  <div className="truncate text-sm font-medium leading-6 text-white">{item.tags}</div>
+                  <div className="truncate text-sm font-medium leading-6 text-white">
+                    {champion.tags.map((tag) => (
+                      <p>{tag}</p>
+                    ))}
+                  </div>
                 </div>
               </td>
             </tr>
