@@ -58,7 +58,7 @@ export default function TableComponent() {
   return (
     <div className="bg-gray-900 py-10 m-10 rounded-md">
       <h2 className="px-4 text-base font-semibold leading-7 text-white sm:px-6 lg:px-8 text-lg">
-      <span className= "h-14 bg-gradient-to-r from-orange-400 to-orange-700 rounded-md p-2">
+      <span className= "h-14 bg-gradient-to-r from-orange-500 to-orange-700 rounded-md p-2">
         Listas de Campeões Gratuitos
       </span>
       </h2>
@@ -73,7 +73,7 @@ export default function TableComponent() {
         <thead className="border-b border-white/10 text-lg leading-6 text-white">
           <tr>
             <th scope="col" className="py-2 pl-4 pr-8 font-semibold sm:pl-6 lg:pl-8" >
-              Nome
+              Campeões
             </th>
             <th scope="col"  className="hidden py-2 pl-0 pr-8 font-semibold sm:table-cell" >
               Título
