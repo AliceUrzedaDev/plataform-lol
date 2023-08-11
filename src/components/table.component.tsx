@@ -5,7 +5,7 @@ import buildImageChampion from "@/utils/buildImageChampion";
 import { v4 as uuidv4 } from 'uuid';
 import translate from "translate";
 import { useEffect, useState } from "react";
-import { championsService } from "@/services/champions.service";
+import { getAllChampions, getFreeChampionsWeek } from "@/services/champions.service";
 
 const freeChampionsIds: number[] = [3,10,18,23,28,34,35,45,57,60,68,79,99,104,127,147,166,201,202,234,236,266,267,360,429,497,555,875,887]
 
@@ -13,7 +13,12 @@ export default function TableComponent() {
   const [champions, setChampions] = useState<any[]>([])
 
   useEffect(() => {
-    championsService().then((response) => {
+    getFreeChampionsWeek().then((response) => {
+      console.log(response.data)
+    }).catch((error) => {
+      console.log('Erro getFreeChampions', error);
+    })
+    getAllChampions().then((response) => {
       const formatResponse = response.data.data;
       const allChampionsArray = Object.values(formatResponse)
       let championsFree: any[] = [];
